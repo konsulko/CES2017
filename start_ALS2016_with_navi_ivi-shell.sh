@@ -16,7 +16,7 @@ QT_H=1920
 # This expects navi application will create wl_surface faster than qmlscene.
 SURFACE_ID_NAVI=2147483648
 SURFACE_ID_QML=2147483649
-NAVI_APP=/home/navi
+NAVI_APP=navi
 
 # Layer ID to contain applicatons
 LAYER_ID=1000

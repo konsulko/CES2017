@@ -5,7 +5,7 @@ After=dbus.service lightmediascanner.service rygel.service
 [Service]
 Type=idle
 Environment=LD_PRELOAD=/usr/lib/libEGL.so
-ExecStart=/usr/bin/qt5/qmlscene -I /opt/AGL/CES2016/imports /opt/AGL/CES2016/Rotated.qml
+ExecStart=/usr/bin/qt5/qmlscene -I /opt/AGL/ALS2016/imports /opt/AGL/ALS2016/Rotated.qml
 
 [Install]
 WantedBy=default.target
