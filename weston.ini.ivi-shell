@@ -11,3 +11,7 @@ ivi-module=ivi-controller.so,wl-shell-emulator.so
 [output]
 name=HDMI1
 transform=90
+
+[output]
+name=HDMI-A-1
+transform=270
