@@ -42,4 +42,5 @@ layer-add-surfaces $LAYER_ID 2
 #set offset to position of navi
 /usr/bin/LayerManagerControl set surface $SURFACE_ID_NAVI position 0 120
 
-
+# Explicitly set the surface order to avoid QML screen frozen when launch
+/usr/bin/LayerManagerControl set layer 1000 render order $SURFACE_ID_QML
