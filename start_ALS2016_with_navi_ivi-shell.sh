@@ -44,3 +44,6 @@ layer-add-surfaces $LAYER_ID 2
 
 # Explicitly set the surface order to avoid QML screen frozen when launch
 /usr/bin/LayerManagerControl set layer 1000 render order $SURFACE_ID_QML
+
+/usr/bin/LayerManagerControl set surfaces $SURFACE_ID_QML input focus keyboard
+/usr/bin/LayerManagerControl set screen 0 render order 1000
