@@ -28,7 +28,7 @@ Item {
         spacing: -10
 
         AppIcon {
-            name: root.icon
+            source: "images/%1_app_icon.png".arg(root.icon)
         }
 
         Text {

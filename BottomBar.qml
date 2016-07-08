@@ -55,23 +55,6 @@ void main(void) {
         source: "images/AGL-Logo.png"
         height: 80
         fillMode: Image.PreserveAspectFit
-
-        MouseArea {
-            anchors.fill: parent
-            onClicked: ipaddr.visible = !ipaddr.visible
-        }
-
-        Rectangle {
-            id: ipaddr
-            color: "#FFFFFF"
-            visible: false
-            anchors.fill: parent
-
-//            Text {
-//                text: "IP: " + (devinfo.ipAddresses.length ? devinfo.ipAddresses.join("\n") : " ")
-//                anchors.fill: parent
-//            }
-        }
     }
 
     VolumeControl {

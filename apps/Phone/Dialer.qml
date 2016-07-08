@@ -8,6 +8,7 @@ import QtQuick 2.0
 import components 1.0
 import utils 1.0
 import "models"
+import execScript 1.0
 
 Item {
     id: dialer
@@ -85,12 +86,19 @@ Item {
 
         MouseArea {
             anchors.fill: parent
+			property string playfile : "/opt/AGL/ALS2016/apps/Phone/play_phone.sh"
+			property string stopfile : "/opt/AGL/ALS2016/apps/Phone/stop_phone.sh"
             onClicked: {
-                if (PhoneModel.callState === "")
-                    PhoneModel.dial(numberInput.text)
-                else
-                    PhoneModel.hangUp()
+                if (PhoneModel.callState === "") {
+                    PhoneModel.dial(numberInput.text);
+					execscript.execute(playfile);
+				}
+                else {
+                    PhoneModel.hangUp();
+					execscript.execute(stopfile);
+				}
             }
         }
     }
+	ExecScript { id:execscript }
 }

@@ -5,6 +5,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import QtQuick 2.0
+import QtMultimedia 5.0
 import utils 1.0
 import system 1.0
 
@@ -66,6 +67,38 @@ App {
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 50
         clip: true
-        onCurrentIndexChanged: player.play()
+        onClicked: player.play()
+        focus: true
+        onCurrentIndexChanged: dirty = true
+    }
+
+    property bool dirty: false
+    onDirtyChanged: hasKeyFocus = true
+    Keys.onPressed: {
+        switch (event.key) {
+        case Qt.Key_PageUp:
+            songsList.decrementCurrentIndex()
+            root.dirty = true
+            event.accepted = true
+            break
+        case Qt.Key_PageDown:
+            songsList.incrementCurrentIndex()
+            root.dirty = true
+            event.accepterd = true
+            break
+        case Qt.Key_Return:
+            if (hasKeyFocus) {
+                if (player.playbackState === MediaPlayer.PlayingState)
+                    player.stop()
+                if (dirty) {
+                    dirty = false
+                    player.play()
+                }
+                event.accepterd = true
+            }
+            break
+        default:
+            break
+        }
     }
 }

@@ -16,7 +16,8 @@ QT_H=1920
 # This expects navi application will create wl_surface faster than qmlscene.
 SURFACE_ID_NAVI=2147483648
 SURFACE_ID_QML=2147483649
-NAVI_APP=navi
+export NAVI_DATA_DIR=/home/root/navi_data/japan_TR9
+NAVI_APP=/usr/bin/navi
 
 # Layer ID to contain applicatons
 LAYER_ID=1000
@@ -35,6 +36,7 @@ export XDG_RUNTIME_DIR=/run/user/0
 export LD_PRELOAD=/usr/lib/libEGL.so
 /usr/bin/qt5/qmlscene -I imports Main.qml &
 $NAVI_APP &
+sleep 1
 layer-add-surfaces $LAYER_ID 2
 /usr/bin/LayerManagerControl set surface $SURFACE_ID_QML destination region 0 0 $SCREEN_W $SCREEN_H
 /usr/bin/LayerManagerControl set surface $SURFACE_ID_QML source region 0 $WIN_TITLE_H $QT_W $QT_H

@@ -13,14 +13,17 @@ Item {
     height: childrenRect.height
 
     property alias source: player.source
+    property alias playbackState: player.playbackState
     property alias albumart: songsinfo.source
-    property bool beginning: true
 
     signal send(string cmd)
 
     function play() {
-        player.autoPlay = !beginning
-        beginning = false
+        player.play()
+    }
+
+    function stop() {
+        player.pause()
     }
 
     Media.MediaPlayer {

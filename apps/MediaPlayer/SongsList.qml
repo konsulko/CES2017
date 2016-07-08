@@ -14,6 +14,8 @@ ListView {
     property string file: listTop.filepath ? listTop.filepath : "song.mp3"
     property string image: listTop.albumart ? listTop.albumart : "images/cover_album.png"
 
+    signal clicked()
+
     function listControl(cmd) {
         if("PREVIOUS" === cmd){
             listView.decrementCurrentIndex()
@@ -23,11 +25,10 @@ ListView {
         listView.currentItem.clicked()
     }
 
-    Rectangle {
-        anchors.top: parent.top
-        anchors.right: parent.right
+    header: Rectangle {
+        x: 102
         width: songsList.width - 102
-        height: 2
+        height: 3
         color: Style.blueViv
     }
 
@@ -39,6 +40,17 @@ ListView {
     delegate:
         ListItem {
         width: parent.width
-        onClicked: listView.currentIndex = index
+        onClicked: {
+            listView.currentIndex = index
+            player.play()
+        }
+    }
+
+    highlightRangeMode: ListView.StrictlyEnforceRange
+    preferredHighlightBegin: 102
+    preferredHighlightEnd: 102
+    highlight: Rectangle {
+        color: 'white'
+        opacity: 0.25
     }
 }

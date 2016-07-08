@@ -6,24 +6,46 @@
 
 import QtQuick 2.0
 
-Item {
+MouseArea {
     id: root
 
     width: 90
     height: 90
 
-    property string name
+    property bool active: false
+    property alias source: icon.source
 
-    signal clicked()
+    function click() {
+        clicked(undefined)
+    }
 
     Image {
         id: icon
         anchors.centerIn: parent
-        source: "images/" + name + "_app_icon.png"
+        width: 100
+        height: 100
+        fillMode: Image.PreserveAspectFit
     }
 
-    MouseArea {
-        anchors.fill: parent
-        onClicked: root.clicked()
-    }
+//    states: [
+//        State {
+//            name: "focused"
+//            when: root.active
+//            PropertyChanges {
+//                target: icon
+//                scale: 2.0
+//                anchors.verticalCenterOffset: 20
+//            }
+//        }
+//    ]
+
+//    transitions: [
+//        Transition {
+//            NumberAnimation {
+//                properties: 'scale, anchors.verticalCenterOffset'
+//                easing.type: Easing.OutElastic
+//                duration: 500
+//            }
+//        }
+//    ]
 }

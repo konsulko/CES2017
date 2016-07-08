@@ -39,25 +39,22 @@ Item {
         anchors.left: parent.left
         anchors.right: parent.right
 
-        AppGrid {
-            anchors.centerIn: parent
-            visible: System.activeApp === "appgrid"
-        }
 
-        Browser {}
-        Cameras {}
-        Dashboard {}
-        Fingerprint {}
-        FMRadio {}
-        GoogleMaps {}
         Home {}
+        GoogleMaps {}
+        Browser {}
+        Dashboard {}
         HVAC {}
-        MediaPlayer {}
-        News {}
-        NFC {}
-        Phone {}
         Weather {}
+        FMRadio {}
+        MediaPlayer {}
+        NFC {}
+        News {}
+        Phone {}
         WaylandView {}
+        Cameras {}
+        Fingerprint {}
+        AppGrid {}
     }
 
     TopBar {
@@ -88,5 +85,17 @@ Item {
         width: parent.width
 
         Behavior on y { YAnimator { duration: 300; easing.type: Easing.OutQuad }}
+    }
+
+    focus: true
+    Keys.onLeftPressed: topbar.left()
+    Keys.onRightPressed: topbar.right()
+    Keys.onReturnPressed: topbar.click()
+    Keys.onBackPressed: topbar.home()
+    Keys.onPressed: {
+        switch (event.key) {
+        default:
+            console.debug('Main.qml', event.key)
+        }
     }
 }

@@ -36,62 +36,68 @@ void main(void) {
         "
     }
 
+    property int currentIndex: 0
+    property AppIcon currentItem
+
     Row {
         anchors.verticalCenter: parent.verticalCenter
         anchors.verticalCenterOffset: 5
         anchors.horizontalCenter: parent.horizontalCenter
         spacing: 30
 
-        Image {
+        AppIcon {
+            id: homeScreen
+            active: currentIndex === 0
+            onActiveChanged: if (active) root.currentItem = homeScreen
             property var mainScreen: root.parent
             property bool home: System.activeApp === "home"
-            source: home ? "images/tizen.png" : "images/homescreen_icon.png"
+            source: home ? "images/agl_icon.png" : "images/homescreen_icon.png"
 
-            MouseArea {
-                anchors.fill: parent
-		property string file : "./switch_off_navi.sh"
-                onClicked: {
-			System.activeApp = "home"
-			execscript.execute(file)
-		}
+            onClicked: {
+                if (currentIndex === 1) {
+                    execscript.execute("./switch_off_navi.sh")
+                }
+                currentIndex = 0
+                System.activeApp = "home"
             }
         }
 
-        Image {
+        AppIcon {
+            id: googleMaps
+            active: currentIndex === 1
+            onActiveChanged: if (active) root.currentItem = googleMaps
             source: "images/googlemaps_app_icon.png"
 
-            MouseArea {
-                anchors.fill: parent
-		property string file : "./switch_on_navi.sh"
-
-                onClicked: {
-			System.activeApp = "googlemaps"
-			execscript.execute(file)
-		}
-            }
-
-            Rectangle {
-                x: -15.5
-                y: -15
-                height: 123
-                width: 1
-                color: "black"
+            onClicked: {
+                currentIndex = 1
+                System.activeApp = "googlemaps"
+                execscript.execute("./switch_on_navi.sh")
             }
         }
 
         Repeater {
             model: ListModel {
+                id: applicationModel
                 ListElement { name: "browser" }
                 ListElement { name: "dashboard" }
                 ListElement { name: "hvac" }
                 ListElement { name: "weather" }
                 ListElement { name: "fmradio" }
-                ListElement { name: "nfc" }
+                ListElement { name: "media_player" }
             }
 
             delegate: AppIcon {
-                name: model.name
-                onClicked: System.activeApp = name
+                id: app
+                active: currentIndex === model.index + 2
+                onActiveChanged: if (active) root.currentItem = app
+                source: "images/%1_app_icon.png".arg(model.name)
+                onClicked: {
+                    if (currentIndex === 1) {
+                        execscript.execute("./switch_off_navi.sh")
+                    }
+                    System.activeApp = model.name
+                    currentIndex = model.index + 2
+                }
 
                 Rectangle {
                     x: -15.5
@@ -103,24 +109,38 @@ void main(void) {
             }
         }
 
-        Image {
+        AppIcon {
+            id: launcher
+            active: currentIndex === applicationModel.count + 2
+            onActiveChanged: if (active) root.currentItem = launcher
             source: "images/application_grid.png"
-
-            MouseArea {
-                anchors.fill: parent
-                onClicked: System.activeApp = "appgrid"
-            }
-
-            Rectangle {
-                x: -15.5
-                y: -15
-                height: 123
-                width: 1
-                color: "black"
+            onClicked: {
+                if (currentIndex === 1) {
+                    execscript.execute("./switch_off_navi.sh")
+                }
+                System.activeApp = "appgrid"
+                currentIndex = applicationModel.count + 2
             }
         }
-
     }
 
-    ExecScript { id:execscript }
+    property int __appCount: applicationModel.count + 3
+
+    function left() {
+        root.currentIndex = (root.currentIndex + root.__appCount - 1) % root.__appCount
+    }
+
+    function right() {
+        root.currentIndex = (root.currentIndex + 1) % root.__appCount
+    }
+
+    function click() {
+        currentItem.click()
+    }
+
+    function home() {
+        homeScreen.click()
+    }
+
+    ExecScript { id: execscript }
 }

@@ -7,8 +7,23 @@
 import QtQuick 2.0
 import system 1.0
 
-Item {
-    property string appId: ""
+FocusScope {
+    id: root
+    property string appId
     anchors.fill: parent
     visible: System.activeApp === appId
+    property bool hasKeyFocus: false
+    focus: visible
+    onFocusChanged: if (focus) hasKeyFocus = true
+
+    Keys.onPressed: {
+        switch (event.key) {
+        case Qt.Key_Left:
+        case Qt.Key_Right:
+            root.hasKeyFocus = false
+            break
+        default:
+            break
+        }
+    }
 }
