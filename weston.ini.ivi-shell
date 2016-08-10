@@ -7,6 +7,7 @@ shell=ivi-shell.so
 #panel-location=none
 [ivi-shell]
 ivi-module=ivi-controller.so,wl-shell-emulator.so
+ivi-input-module=ivi-input-controller.so
 
 [output]
 name=HDMI1
