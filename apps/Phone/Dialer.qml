@@ -86,8 +86,8 @@ Item {
 
         MouseArea {
             anchors.fill: parent
-			property string playfile : "/opt/AGL/ALS2016/apps/Phone/play_phone.sh"
-			property string stopfile : "/opt/AGL/ALS2016/apps/Phone/stop_phone.sh"
+			property string playfile : "/usr/AGL/ALS2016/apps/Phone/play_phone.sh"
+			property string stopfile : "/usr/AGL/ALS2016/apps/Phone/stop_phone.sh"
             onClicked: {
                 if (PhoneModel.callState === "") {
                     PhoneModel.dial(numberInput.text);
