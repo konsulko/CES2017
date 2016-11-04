@@ -1,5 +1,6 @@
 [core]
 shell=ivi-shell.so
+backend=drm-backend.so
 
 #[shell]
 #locking=true
@@ -16,3 +17,8 @@ transform=90
 [output]
 name=HDMI-A-1
 transform=270
+
+[output]
+name=Virtual-1
+transform=270
+mode=1920x1080
