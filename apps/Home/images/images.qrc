@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>AGL_HMI_Background_Car-01.png</file>
+        <file>HMI_AppLauncher_Connectivity_Active-01.png</file>
+        <file>HMI_AppLauncher_Connectivity_Inactive-01.png</file>
+        <file>HMI_AppLauncher_Dashboard_Active-01.png</file>
+        <file>HMI_AppLauncher_Dashboard_Inactive-01.png</file>
+        <file>HMI_AppLauncher_HVAC_Active-01.png</file>
+        <file>HMI_AppLauncher_HVAC_Inactive-01.png</file>
+        <file>HMI_AppLauncher_Multimedia_Active-01.png</file>
+        <file>HMI_AppLauncher_Multimedia_Inactive-01.png</file>
+        <file>HMI_AppLauncher_Navigation_Active-01.png</file>
+        <file>HMI_AppLauncher_Navigation_Inactive-01.png</file>
+        <file>HMI_AppLauncher_Phone_Active-01.png</file>
+        <file>HMI_AppLauncher_Phone_Inactive-01.png</file>
+        <file>HMI_AppLauncher_POI_Active-01.png</file>
+        <file>HMI_AppLauncher_POI_Inactive-01.png</file>
+        <file>HMI_AppLauncher_Radio_Active-01.png</file>
+        <file>HMI_AppLauncher_Radio_Inactive-01.png</file>
+        <file>HMI_AppLauncher_Settings_Active-01.png</file>
+        <file>HMI_AppLauncher_Settings_Inactive-01.png</file>
+    </qresource>
+</RCC>

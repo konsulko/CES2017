@@ -1,130 +1,53 @@
-/* Copyright (C) 2015, Jaguar Land Rover. All Rights Reserved.
+/*
+ * Copyright (C) 2016 The Qt Company Ltd.
  *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-import QtQuick 2.0
-import components 1.0
-import system 1.0
-import utils 1.0
-import vehicle 1.0
+import QtQuick 2.6
+import QtQuick.Window 2.1
+import QtQuick.Layouts 1.1
+import QtQuick.Controls 2.0
+import Home 1.0
 
-App {
+Window {
     id: root
-    appId: "home"
+    width: 1080
+    height: 1920 - 218 - 215
+    visible: true
+    flags: Qt.FramelessWindowHint
 
-    Helix {
+    Image {
         anchors.fill: parent
-        onShowApp: System.activeApp = app
+        anchors.topMargin: -218
+        anchors.bottomMargin: -215
+        source: './images/AGL_HMI_Background_Car-01.png'
     }
 
-    Column {
-        y: 10
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors { leftMargin: 40; rightMargin: 40 }
-        spacing: 13
+    GridView {
+        anchors.centerIn: parent
+        width: cellHeight * 3
+        height: cellHeight * 3
+        cellWidth: 320
+        cellHeight: 320
 
-        DateTime {}
-
-        Item {
-            width: parent.width
-            height: childrenRect.height
-
-            Column {
-                y: 5
-                spacing: -8
-
-                Text {
-                    color: "white"
-                    font.family: "Source Sans Pro"
-                    font.weight: Font.Bold
-                    font.pixelSize: 22
-                    text: "Fuel"
-                }
-
-                Text {
-                    color: "white"
-                    font.family: "Source Sans Pro"
-                    font.weight: Font.Bold
-                    font.pixelSize: 45
-                    text: FuelModel.percentage.toFixed(0) + "%"
-                }
-            }
-
-            Column {
-                anchors.right: parent.right
-                spacing: -6
-
-                Text {
-                    anchors.right: parent.right
-                    color: "white"
-                    font.family: "Source Sans Pro"
-                    font.weight: Font.Bold
-                    font.pixelSize: 45
-                    text: TemperatureModel.outdoorString
-                }
-
-                Text {
-                    anchors.right: parent.right
-                    color: "white"
-                    font.family: "Source Sans Pro"
-                    font.weight: Font.Bold
-                    font.pixelSize: 22
-                    text: "Portland OR"
-                }
-            }
-        }
-
-        Item {
-            width: parent.width
-            height: childrenRect.height
-
-            Row {
-                y: -5
-                spacing: 10
-
-                Text {
-                    id: speed
-                    color: Style.blueViv
-                    font.family: "Source Sans Pro"
-                    font.weight: Font.Bold
-                    font.pixelSize: 75
-                    text: SpeedModel.textSpeed.toFixed(0)
-                }
-
-                Text {
-                    anchors.baseline: speed.baseline
-                    color: Style.blueViv
-                    font.family: "Source Sans Pro"
-                    font.weight: Font.Bold
-                    font.pixelSize: 22
-                    text: SpeedModel.metric ? "KM/H" : "MPH"
-                }
-            }
-
-            Column {
-                anchors.right: parent.right
-                spacing: -7
-
-                Text {
-                    anchors.right: parent.right
-                    color: Style.blueViv
-                    font.family: "Source Sans Pro"
-                    font.weight: Font.Bold
-                    font.pixelSize: 22
-                    text: "Int. Temp"
-                }
-
-                Text {
-                    anchors.right: parent.right
-                    color: Style.blueViv
-                    font.family: "Source Sans Pro"
-                    font.weight: Font.Bold
-                    font.pixelSize: 45
-                    text: TemperatureModel.indoorString
-                }
+        model: ApplicationModel {}
+        delegate: MouseArea {
+            width: 320
+            height: 320
+            Image {
+                anchors.fill: parent
+                source: './images/HMI_AppLauncher_%1_%2-01.png'.arg(model.icon).arg(pressed ? 'Active' : 'Inactive')
             }
         }
     }
