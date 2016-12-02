@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>FM_Icons_AM.png</file>
+        <file>FM_Icons_FM.png</file>
+        <file>HMI_Radio_Channel_Slider.png</file>
+        <file>HMI_Radio_Equalizer.png</file>
+        <file>HMI_Radio_Slider_Icon.png</file>
+        <file>Media_Inactive_Icon.png</file>
+        <file>Radio_Active_Icon.png</file>
+        <file>Radio_Freq-.png</file>
+        <file>Radio_Freq+.png</file>
+        <file>Radio_Scan-.png</file>
+        <file>Radio_Scan+.png</file>
+        <file>AGL_HMI_Background_NoCar-01.png</file>
+    </qresource>
+</RCC>
