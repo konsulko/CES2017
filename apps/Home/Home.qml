@@ -15,18 +15,12 @@
  */
 
 import QtQuick 2.6
-import QtQuick.Window 2.1
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.0
 import Home 1.0
 
-Window {
+ApplicationWindow {
     id: root
-    width: 1080
-    height: 1920 - 218 - 215
-    visible: true
-    flags: Qt.FramelessWindowHint
-
     Image {
         anchors.fill: parent
         anchors.topMargin: -218

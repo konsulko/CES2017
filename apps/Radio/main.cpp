@@ -17,6 +17,7 @@
 #include <QtCore/QDebug>
 #include <QtGui/QGuiApplication>
 #include <QtQml/QQmlApplicationEngine>
+#include <QtQuickControls2/QQuickStyle>
 
 #ifdef HAVE_LIBHOMESCREEN
 #include <libhomescreen.hpp>
@@ -34,6 +35,8 @@ int main(int argc, char *argv[])
 #endif
 
     QGuiApplication app(argc, argv);
+
+    QQuickStyle::setStyle("AGL");
 
     QQmlApplicationEngine engine;
     engine.load(QUrl(QStringLiteral("qrc:/Radio.qml")));

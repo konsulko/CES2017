@@ -18,6 +18,7 @@
 #include <QtGui/QGuiApplication>
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/qqml.h>
+#include <QtQuickControls2/QQuickStyle>
 
 #ifdef HAVE_LIBHOMESCREEN
 #include <libhomescreen.hpp>
@@ -38,6 +39,7 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
 
+    QQuickStyle::setStyle("AGL");
     qmlRegisterType<ApplicationModel>("Home", 1, 0, "ApplicationModel");
     QQmlApplicationEngine engine;
     engine.load(QUrl(QStringLiteral("qrc:/Home.qml")));

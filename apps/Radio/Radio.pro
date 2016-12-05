@@ -1,6 +1,6 @@
 TEMPLATE = app
 TARGET = radio
-QT = quick dbus
+QT = quickcontrols2
 
 config_libhomescreen {
     CONFIG += link_pkgconfig

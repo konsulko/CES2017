@@ -6,24 +6,12 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import QtQuick 2.6
-import QtQuick.Window 2.1
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.0
 import QtMultimedia 5.0
 
-Window {
+ApplicationWindow {
     id: root
-    width: 1080
-    height: 1920 - 218 - 215
-    visible: true
-    flags: Qt.FramelessWindowHint
-
-    Image {
-        anchors.fill: parent
-        anchors.topMargin: -218
-        anchors.bottomMargin: -215
-        source: './images/AGL_HMI_Background_NoCar-01.png'
-    }
 
     ListModel {
         id: presetModel
@@ -88,16 +76,12 @@ Window {
                 Label {
                     Layout.fillWidth: true
                     text: '102.5'
-                    font.family: 'Roboto'
                     font.pixelSize: 150
                     horizontalAlignment: Text.AlignRight
-                    color: 'white'
                 }
                 Label {
                     text: 'MHz'
-                    font.family: 'Roboto'
                     font.pixelSize: 50
-                    color: 'white'
                 }
 
                 Image {

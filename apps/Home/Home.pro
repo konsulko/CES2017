@@ -1,6 +1,6 @@
 TEMPLATE = app
 TARGET = home
-QT = quick dbus
+QT = quickcontrols2 dbus
 
 config_libhomescreen {
     CONFIG += link_pkgconfig
