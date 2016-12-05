@@ -1,2 +1,2 @@
 TEMPLATE = subdirs
-SUBDIRS = Home Radio Controls
+SUBDIRS = Home Radio Controls HVAC
