@@ -1,2 +1,2 @@
 TEMPLATE = subdirs
-SUBDIRS = Home Radio
+SUBDIRS = Home Radio Controls

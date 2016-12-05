@@ -1,5 +1,5 @@
 TEMPLATE = subdirs
-SUBDIRS = apps
+SUBDIRS = apps imports
 
 load(configure)
 qtCompileTest(libhomescreen)
