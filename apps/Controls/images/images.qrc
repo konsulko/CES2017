@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>HMI_HVAC_AC_Active.svg</file>
+        <file>HMI_HVAC_AC_Inactive.svg</file>
+    </qresource>
+</RCC>

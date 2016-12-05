@@ -11,5 +11,6 @@ config_libhomescreen {
 SOURCES = main.cpp
 
 RESOURCES += \
-    controls.qrc
+    controls.qrc \
+    images/images.qrc
 

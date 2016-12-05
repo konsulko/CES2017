@@ -17,6 +17,7 @@
 import QtQuick 2.6
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.0
+import AGL.Demo.Controls 1.0
 
 ApplicationWindow {
     id: root
@@ -52,5 +53,11 @@ ApplicationWindow {
 
         Label { text: 'Slider:' }
         Slider {}
+
+        Label { text: 'ToogleButton:' }
+        ToggleButton {
+            onImage: './images/HMI_HVAC_AC_Active.svg'
+            offImage: './images/HMI_HVAC_AC_Inactive.svg'
+        }
     }
 }
