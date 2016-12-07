@@ -15,29 +15,17 @@
  */
 
 import QtQuick 2.6
-import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.0
+import QtQuick.Templates 2.0 as T
 
-ApplicationWindow {
-    id: root
+T.Button {
+    id: control
+    implicitWidth: contentItem.implicitWidth
+    implicitHeight: contentItem.implicitHeight
 
-    StackView {
-        id: stack
-        anchors.fill: parent
-        initialItem: dialer
-    }
-    Dialer {
-        id: dialer
-        onShowContacts: stack.push(contacts)
-    }
-    Component {
-        id: contacts
-        ContactsView {
-            onCancel: stack.pop()
-            onCall: {
-                dialer.call(contact)
-                stack.pop()
-            }
-        }
+    property url offImage
+    property url onImage: offImage
+
+    contentItem: Image {
+        source: control.pressed ? control.onImage : control.offImage
     }
 }

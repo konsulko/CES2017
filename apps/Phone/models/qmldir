@@ -4,7 +4,5 @@
 # * License, v. 2.0. If a copy of the MPL was not distributed with this
 # * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-singleton CallListModel 1.0 CallListModel.qml
-singleton ContactsModel 1.0 ContactsModel.qml
-singleton FavoritesModel 1.0 FavoritesModel.qml
-singleton PhoneModel 1.0 PhoneModel.qml
+CallListModel 1.0 CallListModel.qml
+ContactsModel 1.0 ContactsModel.qml

@@ -40,7 +40,7 @@ ApplicationWindow {
         Label { text: 'Switch:' }
         Switch {}
 
-        Label { text: 'Progress Bar:' }
+        Label { text: 'ProgressBar:' }
         ProgressBar {
             NumberAnimation on value {
                 from: 0
@@ -53,6 +53,9 @@ ApplicationWindow {
 
         Label { text: 'Slider:' }
         Slider {}
+
+        Label { text: 'TextField:' }
+        TextField {}
 
         Label { text: 'ToogleButton:' }
         ToggleButton {

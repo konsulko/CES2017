@@ -1,0 +1,39 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>HMI_ContactScreen_ImageHolder-01.svg</file>
+        <file>HMI_ContactScreen_SearchIcon-01.svg</file>
+        <file>HMI_ContactScreen_X-01.svg</file>
+        <file>HMI_Phone_Back_Icon.svg</file>
+        <file>HMI_Phone_Button_NumberSign_Active-01.svg</file>
+        <file>HMI_Phone_Button_NumberSign_Inactive-01.svg</file>
+        <file>HMI_Phone_Button_0_Active-01.svg</file>
+        <file>HMI_Phone_Button_0_Inactive-01.svg</file>
+        <file>HMI_Phone_Button_1_Active-01.svg</file>
+        <file>HMI_Phone_Button_1_Inactive-01.svg</file>
+        <file>HMI_Phone_Button_2_Active-01.svg</file>
+        <file>HMI_Phone_Button_2_Inactive-01.svg</file>
+        <file>HMI_Phone_Button_3_Active-01.svg</file>
+        <file>HMI_Phone_Button_3_Inactive-01.svg</file>
+        <file>HMI_Phone_Button_4_Active-01.svg</file>
+        <file>HMI_Phone_Button_4_Inactive-01.svg</file>
+        <file>HMI_Phone_Button_5_Active-01.svg</file>
+        <file>HMI_Phone_Button_5_Inactive-01.svg</file>
+        <file>HMI_Phone_Button_6_Active-01.svg</file>
+        <file>HMI_Phone_Button_6_Inactive-01.svg</file>
+        <file>HMI_Phone_Button_7_Active-01.svg</file>
+        <file>HMI_Phone_Button_7_Inactive-01.svg</file>
+        <file>HMI_Phone_Button_8_Active-01.svg</file>
+        <file>HMI_Phone_Button_8_Inactive-01.svg</file>
+        <file>HMI_Phone_Button_9_Active-01.svg</file>
+        <file>HMI_Phone_Button_9_Inactive-01.svg</file>
+        <file>HMI_Phone_Button_asterisk_Active-01.svg</file>
+        <file>HMI_Phone_Button_asterisk_Inactive-01.svg</file>
+        <file>HMI_Phone_Button_Blank_Active-01.svg</file>
+        <file>HMI_Phone_Button_Blank_Inactive-01.svg</file>
+        <file>HMI_Phone_Call.svg</file>
+        <file>HMI_Phone_Contact_BlankPhoto.svg</file>
+        <file>HMI_Phone_Contact_DividingLine.svg</file>
+        <file>HMI_Phone_Contacts-01.svg</file>
+        <file>HMI_Phone_Hangup.svg</file>
+    </qresource>
+</RCC>
