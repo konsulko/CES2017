@@ -4,5 +4,8 @@
         <file>DateTime.qml</file>
         <file>Bluetooth.qml</file>
         <file>Wifi.qml</file>
+        <file>DateEdit.qml</file>
+        <file>TimeEdit.qml</file>
+        <file>EditSeparator.qml</file>
     </qresource>
 </RCC>

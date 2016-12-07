@@ -42,6 +42,7 @@ ApplicationWindow {
 
         Label { text: 'ProgressBar:' }
         ProgressBar {
+            Layout.fillWidth: true
             NumberAnimation on value {
                 from: 0
                 to: 1
@@ -52,7 +53,9 @@ ApplicationWindow {
         }
 
         Label { text: 'Slider:' }
-        Slider {}
+        Slider {
+            Layout.fillWidth: true
+        }
 
         Label { text: 'TextField:' }
         TextField {}
@@ -61,6 +64,20 @@ ApplicationWindow {
         ToggleButton {
             onImage: './images/HMI_HVAC_AC_Active.svg'
             offImage: './images/HMI_HVAC_AC_Inactive.svg'
+        }
+
+        Label { text: 'Tumbler:' }
+        RowLayout {
+            Tumbler {
+                model: 12
+            }
+            Label { text: ':' }
+            Tumbler {
+                model: 60
+            }
+            Tumbler {
+                model: ['AM', 'PM']
+            }
         }
     }
 }
