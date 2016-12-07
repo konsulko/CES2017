@@ -12,6 +12,5 @@ SOURCES = main.cpp
 
 RESOURCES += \
     hvac.qrc \
-    images/images.qrc \
     images/images.qrc
 
