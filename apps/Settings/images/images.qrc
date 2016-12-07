@@ -1,0 +1,25 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>HMI_Pair_Button.svg</file>
+        <file>HMI_Paired_Button.svg</file>
+        <file>HMI_Settings_BluetoothIcon.svg</file>
+        <file>HMI_Settings_DividingLine.svg</file>
+        <file>HMI_Settings_TimeDate_Arrow_DividingLine.svg</file>
+        <file>HMI_Settings_TimeDate_Arrow_Down.svg</file>
+        <file>HMI_Settings_TimeDate_Arrow_Up.svg</file>
+        <file>HMI_Settings_TimeDate_Button_Cancel.svg</file>
+        <file>HMI_Settings_TimeDate_Button_Set.svg</file>
+        <file>HMI_Settings_TimeIcon.svg</file>
+        <file>HMI_Settings_Wifi_1Bar.svg</file>
+        <file>HMI_Settings_Wifi_2Bars.svg</file>
+        <file>HMI_Settings_Wifi_3Bars.svg</file>
+        <file>HMI_Settings_Wifi_Full.svg</file>
+        <file>HMI_Settings_Wifi_Locked_1Bar.svg</file>
+        <file>HMI_Settings_Wifi_Locked_2Bars.svg</file>
+        <file>HMI_Settings_Wifi_Locked_3Bars.svg</file>
+        <file>HMI_Settings_Wifi_Locked_Full.svg</file>
+        <file>HMI_Settings_Wifi_Locked_NoBars.svg</file>
+        <file>HMI_Settings_Wifi_NoBars.svg</file>
+        <file>HMI_Settings_WifiIcon.svg</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+<svg
+   xmlns:i="&amp;ns_ai;"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Layer_1"
+   x="0px"
+   y="0px"
+   viewBox="0 0 100 100"
+   style="enable-background:new 0 0 100 100;"
+   xml:space="preserve"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="HMI_Settings_WifiIcon.svg"><metadata
+     id="metadata20"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+     id="defs18" /><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="2560"
+     inkscape:window-height="1464"
+     id="namedview16"
+     showgrid="false"
+     inkscape:zoom="2.36"
+     inkscape:cx="-191.52542"
+     inkscape:cy="50"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Layer_1" /><style
+     type="text/css"
+     id="style3">
+	.st0{fill:#FFFFFF;}
+</style><switch
+     id="switch5"><g
+       i:extraneous="self"
+       id="g7"><g
+         id="Wifi_Icon"><path
+           class="st0"
+           d="M49.6,32.8c10.8-0.2,21.2,4.3,31,13.4l1.6-1.6C72,35,61,30.2,49.6,30.5c-15.2,0.4-26.9,9.4-31.8,13.9     l1.6,1.6C24.1,41.7,35.4,33.1,49.6,32.8z"
+           id="path10" /><path
+           class="st0"
+           d="M29,55.8l1.6,1.6c2.9-2.7,10.1-8.2,19.1-8.4c6.9-0.2,13.4,2.7,19.6,8.5L71,56c-6.7-6.3-13.9-9.4-21.3-9.2     C39.7,47,32.1,52.9,29,55.8z"
+           id="path12" /><path
+           class="st0"
+           d="M49.8,63.5c-4.7,0.1-8.2,3.3-9,4.2l1.6,1.6c0.7-0.7,3.6-3.4,7.5-3.5c2.6,0,5.3,1.2,7.7,3.7l1.6-1.6     C56.3,64.9,53.2,63.5,49.8,63.5z"
+           id="path14" /></g></g></switch></svg>

@@ -1,125 +1,90 @@
-/* Copyright (C) 2015, Jaguar Land Rover. All Rights Reserved.
+/*
+ * Copyright (C) 2016 The Qt Company Ltd.
  *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-import QtQuick 2.0
-import components 1.0
-import system 1.0
-import utils 1.0
+import QtQuick 2.6
+import QtQuick.Layouts 1.1
+import QtQuick.Controls 2.0
 
-Item {
+ApplicationWindow {
     id: root
 
-    Rectangle {
+    StackView {
+        id: stack
         anchors.fill: parent
-        opacity: 0.8
-        color: "black"
-    }
-
-    MouseArea {
-        anchors.fill: parent
-    }
-
-    Column {
-        x: 41
-        y: 18
-        spacing: -2
-
-        BoxHeading {
-            x: 7
-            text: "APPS"
-        }
-
-        Text {
-            font.family: "Source Sans Pro"
-            font.pixelSize: 60
-            font.weight: Font.Bold
-            color: "white"
-            text: "SETTINGS"
-        }
-    }
-
-    ListModel {
-        id: settingsModel
-
-        ListElement { name: "Volume Settings"; view: "volume" }
-        ListElement { name: "Bluetooth Settings"; view: "bluetooth" }
-        ListElement { name: "WIFI Settings"; view: "wifi" }
-        ListElement { name: "RVI Settings"; view: "rvi" }
-        ListElement { name: "Hotspot Settings"; view: "hotspot" }
-    }
-
-    Component {
-        id: settingsDelegate
-
-        Item {
-            x: 20
-            width: 960
-            height: 131
-
-            Text {
-                anchors.verticalCenter: parent.verticalCenter
-                font.family: "Source Sans Pro"
-                font.pixelSize: 40
-                font.capitalization: Font.AllUppercase
-                color: Style.orangeViv
-                text: model.name
-            }
-
-            Rectangle {
-                anchors.top: parent.top
-                height: 2
-                width: parent.width
-                color: "#555"
-                visible: model.index > 0
-            }
-
-            MouseArea {
-                anchors.fill: parent
-                onClicked: System.activeSetting = model.view
-            }
-        }
-    }
-
-    Item {
-        y: 170
-        x: 40
-        width: 1000
-        height: parent.height - 170
-
-        Rectangle {
-            width: parent.width
-            height: childrenRect.height
-            color: "#222"
-            visible: System.activeSetting === "settings"
-
+        initialItem: Page {
+            title: 'Settings'
             ListView {
-                height: childrenRect.height
-                width: childrenRect.width
-                model: settingsModel
-                delegate: settingsDelegate
-           }
-        }
+                anchors.fill: parent
+                anchors.margins: root.width * 0.075
+                clip: true
+                model: ListModel {
+                    ListElement {
+                        icon: 'qrc:/images/HMI_Settings_TimeIcon.svg'
+                        name: 'Date & Time'
+                        togglable: false
+                        app: 'DateTime.qml'
+                    }
+                    ListElement {
+                        icon: 'qrc:/images/HMI_Settings_BluetoothIcon.svg'
+                        name: 'Bluetooth'
+                        togglable: true
+                        app: 'Bluetooth.qml'
+                    }
+                    ListElement {
+                        icon: 'qrc:/images/HMI_Settings_WifiIcon.svg'
+                        name: 'Wifi'
+                        togglable: true
+                        app: 'Wifi.qml'
+                    }
+                }
 
-        VolumeSettings { id: volume }
-        BluetoothSettings { id: bluetooth }
-        WifiSettings { id: wifi }
-        RVISettings { id: rvi }
-        HotspotSettings { id: hotspot }
-    }
+                delegate: MouseArea {
+                    id: delegate
+                    width: ListView.view.width
+                    height: width / 6
+                    RowLayout {
+                        anchors.fill: parent
+                        Image {
+                            source: model.icon
+                        }
+                        Label {
+                            Layout.fillWidth: true
+                            text: model.name.toUpperCase()
+                            color: '#59FF7F'
+                        }
+                        Switch {
+                            visible: model.togglable
+                        }
+                    }
+                    Rectangle {
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        anchors.top: parent.top
+                        height: 1
+                        color: 'white'
+                        opacity: 0.25
+                        visible: model.index > 0
+                    }
 
-    Image {
-        y: 48
-        anchors.right: parent.right
-        anchors.rightMargin: 55
-
-        source: "../../images/bt_close.png"
-
-        MouseArea {
-            anchors.fill: parent
-            onClicked: System.showSettings = false
+                    onClicked: {
+                        var component = Qt.createComponent(model.app)
+                        stack.push(component, {'stack': stack})
+                    }
+                }
+            }
         }
     }
 }
