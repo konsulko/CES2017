@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+<svg
+   xmlns:i="&amp;#38;ns_ai;"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Layer_3"
+   x="0px"
+   y="0px"
+   viewBox="0 0 350 155"
+   style="enable-background:new 0 0 350 155;"
+   xml:space="preserve"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="HMI_Dashboard_Left_BackTire.svg"><metadata
+     id="metadata64"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+     id="defs62" /><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="2560"
+     inkscape:window-height="1464"
+     id="namedview60"
+     showgrid="false"
+     inkscape:zoom="1.5225806"
+     inkscape:cx="299.92128"
+     inkscape:cy="108.70642"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Layer_3" /><style
+     type="text/css"
+     id="style3">
+	.st0{fill:url(#SVGID_1_);}
+	.st1{fill:url(#SVGID_2_);}
+	.st2{fill:url(#SVGID_3_);}
+	.st3{fill:#FFFFFF;}
+	.st4{font-family:'Roboto-Regular';}
+	.st5{font-size:17px;}
+	.st6{letter-spacing:3;}
+	.st7{fill:#66FF99;}
+	.st8{fill:none;stroke:#66FF99;stroke-miterlimit:10;}
+</style><switch
+     id="switch5"><g
+       i:extraneous="self"
+       id="g7"><g
+         id="g9"><g
+           id="g11"><g
+             id="g13"><g
+               id="g15"><linearGradient
+                 id="SVGID_1_"
+                 gradientUnits="userSpaceOnUse"
+                 x1="206.3706"
+                 y1="118.8609"
+                 x2="280.2762"
+                 y2="26.9783"><stop
+                   offset="0"
+                   style="stop-color:#59FF7F"
+                   id="stop18" /><stop
+                   offset="1"
+                   style="stop-color:#6BFBFF"
+                   id="stop20" /></linearGradient><polygon
+                 class="st0"
+                 points="239.8,77.6 238.4,76.2 248.9,65.7 250.3,67.1       "
+                 id="polygon22" /></g><g
+               id="g24"><linearGradient
+                 id="SVGID_2_"
+                 gradientUnits="userSpaceOnUse"
+                 x1="202.652"
+                 y1="115.8698"
+                 x2="276.5576"
+                 y2="23.9872"><stop
+                   offset="0"
+                   style="stop-color:#59FF7F"
+                   id="stop27" /><stop
+                   offset="1"
+                   style="stop-color:#6BFBFF"
+                   id="stop29" /></linearGradient><polygon
+                 class="st1"
+                 points="238.9,77.1 233.1,71.4 234.5,70 240.3,75.7       "
+                 id="polygon31" /></g><g
+               id="g33"><linearGradient
+                 id="SVGID_3_"
+                 gradientUnits="userSpaceOnUse"
+                 x1="203.884"
+                 y1="116.8608"
+                 x2="277.7896"
+                 y2="24.9782"><stop
+                   offset="0"
+                   style="stop-color:#59FF7F"
+                   id="stop36" /><stop
+                   offset="1"
+                   style="stop-color:#6BFBFF"
+                   id="stop38" /></linearGradient><path
+                 class="st2"
+                 d="M240.1,93.8c-12.1,0-22-9.9-22-22c0-12.1,9.9-22,22-22c2.4,0,4.8,0.4,7.1,1.2l-0.6,1.9        c-2.1-0.7-4.2-1.1-6.5-1.1c-11,0-20,9-20,20s9,20,20,20s20-9,20-20c0-2-0.3-3.9-0.9-5.8l1.9-0.6c0.6,2.1,0.9,4.2,0.9,6.4        C262.1,83.9,252.3,93.8,240.1,93.8z"
+                 id="path40" /></g></g></g><g
+           id="g50"><g
+             id="g52"><polyline
+               class="st8"
+               points="99.9,86.7 99.9,105.2 328,105.2      "
+               id="polyline54" /><g
+               id="g56"><circle
+                 class="st7"
+                 cx="327.8"
+                 cy="105.2"
+                 r="3.8"
+                 id="circle58" /></g></g></g></g></g></switch></svg>

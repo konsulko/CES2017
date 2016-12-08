@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Dashboard.qml</file>
+        <file>TirePressure.qml</file>
+    </qresource>
+</RCC>
