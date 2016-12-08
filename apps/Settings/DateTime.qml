@@ -32,6 +32,7 @@ Page {
             anchors.right: parent.right
             Button {
                 text: 'OK'
+                highlighted: true
                 onClicked: root.stack.pop()
             }
         }

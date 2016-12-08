@@ -33,8 +33,15 @@ ApplicationWindow {
         }
 
         Label { text: 'Button:' }
-        Button {
-            text: 'This is a button'
+        Row {
+            spacing: 20
+            Button {
+                text: 'Normal'
+            }
+            Button {
+                text: 'Highlighted'
+                highlighted: true
+            }
         }
 
         Label { text: 'Switch:' }
