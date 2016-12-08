@@ -23,7 +23,11 @@ T.Button {
     implicitWidth: background.implicitWidth
     implicitHeight: background.implicitHeight
     font.family: 'Roboto'
-    font.pixelSize: Math.min(Screen.width, Screen.height) / 40
+    font.pixelSize: Math.min(Screen.width, Screen.height) / 50
+
+    Translate {
+        id: translate
+    }
 
     contentItem: Text {
         text: root.text
@@ -33,9 +37,27 @@ T.Button {
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         elide: Text.ElideRight
+        transform: translate
     }
 
     background: Image {
-        source: './images/HMI_Settings_Button_Ok.svg'
+        source: root.highlighted ? './images/HMI_Settings_Button_Ok.svg' : './images/HMI_Settings_Button_Cancel.svg'
+        transform: translate
     }
+
+    states: [
+        State {
+            name: 'pressed'
+            when: root.pressed
+            PropertyChanges {
+                target: translate
+                x: 3
+                y: 3
+            }
+            PropertyChanges {
+                target: background
+                opacity: 0.75
+            }
+        }
+    ]
 }
