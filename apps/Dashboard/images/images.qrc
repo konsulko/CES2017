@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>HMI_Dashboard_Car.png</file>
+        <file>HMI_Dashboard_Fuel_Icon.svg</file>
+        <file>HMI_Dashboard_LeftTire.svg</file>
+        <file>HMI_Dashboard_RightTire.svg</file>
+        <file>HMI_Dashboard_Speed_Icon.svg</file>
+        <file>HMI_Dashboard_TirePressure_OK.svg</file>
+        <file>HMI_Dashboard_Fuel_Details.svg</file>
+    </qresource>
+</RCC>
