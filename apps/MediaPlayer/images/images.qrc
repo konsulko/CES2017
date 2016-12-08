@@ -1,0 +1,37 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>AGL_MediaPlayer_Bluetooth_Active.svg</file>
+        <file>AGL_MediaPlayer_AlbumArtwork.svg</file>
+        <file>AGL_MediaPlayer_BackArrow.svg</file>
+        <file>AGL_MediaPlayer_Bluetooth_Inactive.svg</file>
+        <file>AGL_MediaPlayer_CD_Active.svg</file>
+        <file>AGL_MediaPlayer_CD_Inactive.svg</file>
+        <file>AGL_MediaPlayer_DividingLine.svg</file>
+        <file>AGL_MediaPlayer_ForwardArrow.svg</file>
+        <file>AGL_MediaPlayer_Loop_Active.svg</file>
+        <file>AGL_MediaPlayer_Loop_Inactive.svg</file>
+        <file>AGL_MediaPlayer_Player_Pause.svg</file>
+        <file>AGL_MediaPlayer_Player_Play.svg</file>
+        <file>AGL_MediaPlayer_Playlist_Active.svg</file>
+        <file>AGL_MediaPlayer_Playlist_Inactive.svg</file>
+        <file>AGL_MediaPlayer_PlaylistToggle_Active.svg</file>
+        <file>AGL_MediaPlayer_PlaylistToggle_Inactive.svg</file>
+        <file>AGL_MediaPlayer_Radio_Active.svg</file>
+        <file>AGL_MediaPlayer_Radio_Inactive.svg</file>
+        <file>AGL_MediaPlayer_Shuffle_Active.svg</file>
+        <file>AGL_MediaPlayer_Shuffle_Inactive.svg</file>
+        <file>Albums_Active.svg</file>
+        <file>Albums_Inactive.svg</file>
+        <file>DividingLine.svg</file>
+        <file>GreenLine.svg</file>
+        <file>Music_Active.svg</file>
+        <file>Music_Inactive.svg</file>
+        <file>Podcasts_Active.svg</file>
+        <file>Podcasts_Inactive.svg</file>
+        <file>Popup_Highlight.svg</file>
+        <file>Popup_PauseIcon.svg</file>
+        <file>Popup_PlayIcon.svg</file>
+        <file>Popup_VerticalLine.svg</file>
+        <file>X.svg</file>
+    </qresource>
+</RCC>
