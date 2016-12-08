@@ -18,22 +18,22 @@ import QtQuick 2.6
 import QtQuick.Templates 2.0 as T
 
 T.Slider {
-    id: control
+    id: root
     implicitWidth: background.implicitWidth
-    implicitHeight: background.implicitHeight
+    implicitHeight: handle.implicitHeight
 
     background: Rectangle {
         implicitWidth: 200
-        implicitHeight: 50
-        radius: control.height / 2
-        x: control.leftPadding
+        height: 10
+        radius: height / 2
+        x: root.leftPadding
         y: parent.height / 2 - height / 2
         color: "#666666"
 
         Rectangle {
             rotation: -90
             transformOrigin: Item.TopLeft
-            y: parent.implicitHeight
+            y: parent.height
             width: parent.height
             height: handle.x + handle.width
             radius: width / 2
@@ -45,12 +45,12 @@ T.Slider {
     }
 
     handle: Rectangle {
-        x: control.leftPadding + control.visualPosition * (control.availableWidth - width)
-        y: control.topPadding + control.availableHeight / 2 - height / 2
+        x: root.leftPadding + root.visualPosition * (root.availableWidth - width)
+        y: root.topPadding + root.availableHeight / 2 - height / 2
         implicitWidth: implicitHeight
-        implicitHeight: control.implicitHeight
+        implicitHeight: 50
         radius: implicitHeight / 2
-        color: control.pressed ? "#f0f0f0" : "#f6f6f6"
+        color: root.pressed ? "#f0f0f0" : "#f6f6f6"
         border.color: "#bdbebf"
     }
 }
