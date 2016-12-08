@@ -24,7 +24,7 @@ ApplicationWindow {
 
     GridLayout {
         anchors.fill: parent
-        anchors.margins: root.width / 10
+        anchors.margins: root.width / 20
         columns: 2
 
         Label { text: 'Label:' }
