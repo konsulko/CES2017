@@ -23,7 +23,7 @@ T.TextField {
     implicitWidth: background.implicitWidth
     implicitHeight: background.implicitHeight
     font.family: 'Roboto'
-    font.pixelSize: Math.min(Screen.width, Screen.height) / 30
+    font.pixelSize: Math.min(Screen.width, Screen.height) / 40
     color: 'white'
 
     background: Item {

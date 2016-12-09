@@ -17,74 +17,97 @@
 import QtQuick 2.6
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.0
+import QtQuick.VirtualKeyboard 2.1
 import AGL.Demo.Controls 1.0
 
 ApplicationWindow {
     id: root
 
-    GridLayout {
+    ColumnLayout {
         anchors.fill: parent
-        anchors.margins: root.width / 20
-        columns: 2
-
-        Label { text: 'Label:' }
-        Label {
-            text: 'This is a label'
-        }
-
-        Label { text: 'Button:' }
-        Row {
-            spacing: 20
-            Button {
-                text: 'Normal'
-            }
-            Button {
-                text: 'Highlighted'
-                highlighted: true
-            }
-        }
-
-        Label { text: 'Switch:' }
-        Switch {}
-
-        Label { text: 'ProgressBar:' }
-        ProgressBar {
+        Item {
             Layout.fillWidth: true
-            NumberAnimation on value {
-                from: 0
-                to: 1
-                duration: 5000
-                loops: Animation.Infinite
-                easing.type: Easing.SineCurve
+            Layout.fillHeight: true
+            GridLayout {
+                anchors.fill: parent
+                anchors.margins: root.width / 20
+                columns: 2
+                rowSpacing: 20
+
+                Label { text: 'Label:' }
+                Label {
+                    text: 'This is a label'
+                }
+
+                Label { text: 'Button:' }
+                Row {
+                    spacing: 20
+                    Button {
+                        text: 'Normal'
+                    }
+                    Button {
+                        text: 'Highlighted'
+                        highlighted: true
+                    }
+                }
+
+                Label { text: 'Switch:' }
+                Switch {}
+
+                Label { text: 'ProgressBar:' }
+                ProgressBar {
+                    Layout.fillWidth: true
+                    NumberAnimation on value {
+                        from: 0
+                        to: 1
+                        duration: 5000
+                        loops: Animation.Infinite
+                        easing.type: Easing.SineCurve
+                    }
+                }
+
+                Label { text: 'Slider:' }
+                Slider {
+                    Layout.fillWidth: true
+                }
+
+                Label { text: 'TextField:' }
+                TextField {}
+
+                Label { text: 'Password:' }
+                TextField {
+                    echoMode: TextInput.Password
+                    inputMethodHints: Qt.ImhNoAutoUppercase | Qt.ImhSensitiveData | Qt.ImhNoPredictiveText
+                }
+
+                Label { text: 'ToogleButton:' }
+                ToggleButton {
+                    onImage: './images/HMI_HVAC_AC_Active.svg'
+                    offImage: './images/HMI_HVAC_AC_Inactive.svg'
+                }
+
+                Label { text: 'Tumbler:' }
+                RowLayout {
+                    Tumbler {
+                        model: 12
+                    }
+                    Label { text: ':' }
+                    Tumbler {
+                        model: 60
+                    }
+                    Tumbler {
+                        model: ['AM', 'PM']
+                    }
+                }
+                Item { Layout.fillHeight: true }
             }
         }
-
-        Label { text: 'Slider:' }
-        Slider {
+        InputPanel {
+            id: inputPanel
             Layout.fillWidth: true
-        }
-
-        Label { text: 'TextField:' }
-        TextField {}
-
-        Label { text: 'ToogleButton:' }
-        ToggleButton {
-            onImage: './images/HMI_HVAC_AC_Active.svg'
-            offImage: './images/HMI_HVAC_AC_Inactive.svg'
-        }
-
-        Label { text: 'Tumbler:' }
-        RowLayout {
-            Tumbler {
-                model: 12
-            }
-            Label { text: ':' }
-            Tumbler {
-                model: 60
-            }
-            Tumbler {
-                model: ['AM', 'PM']
-            }
+            Layout.fillHeight: true
+            z: 99
+            visible: active
         }
     }
 }
