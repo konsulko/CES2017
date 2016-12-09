@@ -17,6 +17,7 @@
 import QtQuick 2.6
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.0
+import QtMultimedia 5.5
 import AGL.Demo.Controls 1.0
 import 'models'
 
@@ -87,20 +88,36 @@ Item {
                 }
             }
         }
+
         ToggleButton {
             id: callButton
             Layout.alignment: Qt.AlignHCenter
             onImage: './images/HMI_Phone_Hangup.svg'
             offImage: './images/HMI_Phone_Call.svg'
+
+            SoundEffect {
+                id: ringtone
+                source: './Phone.wav'
+                loops: SoundEffect.Infinite
+                category: 'phone'
+            }
+
             onCheckedChanged: {
                 if (checked) {
+                    if (number.text.length === 0) {
+                        callButton.checked = false
+                        return
+                    }
+
                     var contact = {'name': name.text, 'number': number.text}
                     if (contact.name === '')
                         contact.name = 'Unknown'
                     history.insert(0, contact)
+                    ringtone.play()
                 } else {
                     name.text = ''
                     number.text = ''
+                    ringtone.stop()
                 }
             }
         }

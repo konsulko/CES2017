@@ -12,5 +12,6 @@ SOURCES = main.cpp
 
 RESOURCES += \
     phone.qrc \
-    images/images.qrc
+    images/images.qrc \
+    audio.qrc
 
