@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/wifi">
+        <file>Wifi.qml</file>
+        <file>images/HMI_Settings_Wifi_1Bar.svg</file>
+        <file>images/HMI_Settings_Wifi_2Bars.svg</file>
+        <file>images/HMI_Settings_Wifi_3Bars.svg</file>
+        <file>images/HMI_Settings_Wifi_Full.svg</file>
+        <file>images/HMI_Settings_Wifi_Locked_1Bar.svg</file>
+        <file>images/HMI_Settings_Wifi_Locked_2Bars.svg</file>
+        <file>images/HMI_Settings_Wifi_Locked_3Bars.svg</file>
+        <file>images/HMI_Settings_Wifi_Locked_Full.svg</file>
+        <file>images/HMI_Settings_Wifi_Locked_NoBars.svg</file>
+        <file>images/HMI_Settings_Wifi_NoBars.svg</file>
+        <file>images/HMI_Settings_WifiIcon.svg</file>
+    </qresource>
+</RCC>

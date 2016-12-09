@@ -18,6 +18,11 @@ import QtQuick 2.6
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.0
 
+import 'datetime'
+import 'bluetooth'
+import 'wifi'
+import 'example'
+
 ApplicationWindow {
     id: root
 
@@ -25,69 +30,31 @@ ApplicationWindow {
         id: stack
         anchors.fill: parent
         initialItem: settings
-    }
 
-    Page {
-        id: settings
-        title: 'Settings'
-        ListView {
-            anchors.fill: parent
-            anchors.margins: root.width * 0.075
-            clip: true
-            model: ListModel {
-                ListElement {
-                    icon: 'qrc:/images/HMI_Settings_TimeIcon.svg'
-                    name: 'Date & Time'
-                    togglable: false
-                    app: 'DateTime.qml'
-                }
-                ListElement {
-                    icon: 'qrc:/images/HMI_Settings_BluetoothIcon.svg'
-                    name: 'Bluetooth'
-                    togglable: true
-                    app: 'Bluetooth.qml'
-                }
-                ListElement {
-                    icon: 'qrc:/images/HMI_Settings_WifiIcon.svg'
-                    name: 'Wifi'
-                    togglable: true
-                    app: 'Wifi.qml'
+        SettingsLauncher {
+            id: settings
+            onLaunch: {
+                stack.push(app)
+            }
+
+            Component.onCompleted: {
+                for (var a in stack.children) {
+                    var app = stack.children[a]
+                    if (!app.isSetting) continue
+                    settingsModel.append({'icon': app.icon, 'title': app.title, 'checkable': app.checkable, 'app': app})
+                    app.visible = false
                 }
             }
 
-            delegate: MouseArea {
-                id: delegate
-                width: ListView.view.width
-                height: width / 6
-                RowLayout {
-                    anchors.fill: parent
-                    Image {
-                        source: model.icon
-                    }
-                    Label {
-                        Layout.fillWidth: true
-                        text: model.name.toUpperCase()
-                        color: '#59FF7F'
-                    }
-                    Switch {
-                        visible: model.togglable
-                    }
-                }
-                Rectangle {
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    anchors.top: parent.top
-                    height: 1
-                    color: 'white'
-                    opacity: 0.25
-                    visible: model.index > 0
-                }
-
-                onClicked: {
-                    var component = Qt.createComponent(model.app)
-                    stack.push(component, {'stack': stack})
-                }
-            }
+            model: ListModel { id: settingsModel }
         }
+
+        DateTime {}
+
+        Bluetooth {}
+
+        Wifi {}
+
+        Example {}
     }
 }

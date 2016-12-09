@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/example">
+        <file>Example.qml</file>
+        <file>images/HMI_Settings_Example.svg</file>
+    </qresource>
+</RCC>

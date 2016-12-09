@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/datetime">
+        <file>DateEdit.qml</file>
+        <file>DateTime.qml</file>
+        <file>TimeEdit.qml</file>
+        <file>EditSeparator.qml</file>
+        <file>images/HMI_Settings_TimeDate_Arrow_DividingLine.svg</file>
+        <file>images/HMI_Settings_TimeDate_Arrow_Down.svg</file>
+        <file>images/HMI_Settings_TimeDate_Arrow_Up.svg</file>
+        <file>images/HMI_Settings_TimeDate_Button_Cancel.svg</file>
+        <file>images/HMI_Settings_TimeDate_Button_Set.svg</file>
+        <file>images/HMI_Settings_TimeIcon.svg</file>
+    </qresource>
+</RCC>

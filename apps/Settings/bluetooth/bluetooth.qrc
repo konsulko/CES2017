@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/bluetooth">
+        <file>Bluetooth.qml</file>
+        <file>images/HMI_Pair_Button.svg</file>
+        <file>images/HMI_Paired_Button.svg</file>
+        <file>images/HMI_Settings_BluetoothIcon.svg</file>
+    </qresource>
+</RCC>

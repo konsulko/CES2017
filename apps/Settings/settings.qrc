@@ -1,11 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>Settings.qml</file>
-        <file>DateTime.qml</file>
-        <file>Bluetooth.qml</file>
-        <file>Wifi.qml</file>
-        <file>DateEdit.qml</file>
-        <file>TimeEdit.qml</file>
-        <file>EditSeparator.qml</file>
+        <file>SettingsLauncher.qml</file>
+        <file>SettingPage.qml</file>
     </qresource>
 </RCC>
