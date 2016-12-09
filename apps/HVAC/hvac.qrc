@@ -1,5 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>HVAC.qml</file>
+        <file>SeatHeatButton.qml</file>
+        <file>HeatDegree.qml</file>
     </qresource>
 </RCC>

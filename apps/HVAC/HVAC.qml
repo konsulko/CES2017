@@ -39,10 +39,14 @@ ApplicationWindow {
                     anchors.left: parent.left
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
+                    onValueChanged: {
+                        console.debug('Fan', value)
+                    }
                 }
                 Label {
                     anchors.left: fanSpeed.left
                     anchors.top: fanSpeed.bottom
+                    font.pixelSize: 32
                     text: 'FAN SPEED'
                 }
             }
@@ -50,31 +54,66 @@ ApplicationWindow {
         RowLayout {
             Layout.fillHeight: true
             Layout.fillWidth: true
+            Layout.alignment: Layout.Center
+            spacing: 20
             ColumnLayout {
-                Image {
-                    source: './images/HMI_HVAC_LeftChair_Section.svg'
+                Layout.fillWidth: true
+                spacing: 20
+                SeatHeatButton {
+                    id: leftSeat
+                    side: 'Left'
+                }
+                HeatDegree {
+                    enabled: leftSeat.headLevel > 0
                 }
             }
             ColumnLayout {
                 Layout.fillWidth: true
-                spacing: root.width / 40
+                spacing: 20
                 ToggleButton {
-                    onImage: './images/HMI_HVAC_AC_Active.svg'
-                    offImage: './images/HMI_HVAC_AC_Inactive.svg'
+                    onImage: './images/HMI_HVAC_Active.svg'
+                    offImage: './images/HMI_HVAC_Inactive.svg'
+                    Label {
+                        anchors.centerIn: parent
+                        color: parent.checked ? '#66FF99' : '#848286'
+                        text: 'A/C'
+                        font.pixelSize: parent.height / 3
+                    }
+                    onCheckedChanged: {
+                        console.debug('A/C', checked)
+                    }
                 }
                 ToggleButton {
-                    onImage: './images/HMI_HVAC_Auto_Active.svg'
-                    offImage: './images/HMI_HVAC_Auto_Inactive.svg'
+                    onImage: './images/HMI_HVAC_Active.svg'
+                    offImage: './images/HMI_HVAC_Inactive.svg'
+                    Label {
+                        anchors.centerIn: parent
+                        color: parent.checked ? '#66FF99' : '#848286'
+                        text: 'AUTO'
+                        font.pixelSize: parent.height / 3
+                    }
+                    onCheckedChanged: {
+                        console.debug('AUTO', checked)
+                    }
                 }
                 ToggleButton {
                     onImage: './images/HMI_HVAC_Circulation_Active.svg'
                     offImage: './images/HMI_HVAC_Circulation_Inactive.svg'
+                    onCheckedChanged: {
+                        console.debug('Circulation', checked)
+                    }
                 }
             }
 
             ColumnLayout {
-                Image {
-                    source: './images/HMI_HVAC_RightChair_Section.svg'
+                Layout.fillWidth: true
+                spacing: 20
+                SeatHeatButton {
+                    id: rightSeat
+                    side: 'Right'
+                }
+                HeatDegree {
+                    enabled: rightSeat.headLevel > 0
                 }
             }
         }
@@ -88,6 +127,9 @@ ApplicationWindow {
                 ToggleButton {
                     onImage: './images/HMI_HVAC_%1_Active.svg'.arg(model.modelData)
                     offImage: './images/HMI_HVAC_%1_Inactive.svg'.arg(model.modelData)
+                    onCheckedChanged: {
+                        console.debug(model.modelData, checked)
+                    }
                 }
             }
         }
