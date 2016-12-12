@@ -8,9 +8,13 @@ config_libhomescreen {
     DEFINES += HAVE_LIBHOMESCREEN
 }
 
-SOURCES = main.cpp
+SOURCES = main.cpp \
+    playlistwithmetadata.cpp
 
 RESOURCES += \
     mediaplayer.qrc \
     images/images.qrc
+
+HEADERS += \
+    playlistwithmetadata.h
 

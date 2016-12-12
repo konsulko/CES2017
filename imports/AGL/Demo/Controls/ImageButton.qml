@@ -27,5 +27,20 @@ T.Button {
 
     contentItem: Image {
         source: control.pressed ? control.onImage : control.offImage
+        transform: [
+            Translate {
+                id: translate
+            }
+        ]
+        states: [
+            State {
+                when: control.pressed
+                PropertyChanges {
+                    target: translate
+                    x: 5
+                    y: 5
+                }
+            }
+        ]
     }
 }

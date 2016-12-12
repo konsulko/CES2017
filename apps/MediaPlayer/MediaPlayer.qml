@@ -17,11 +17,32 @@
 import QtQuick 2.6
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.0
-import QtMultimedia 5.5
+import QtMultimedia 5.6
 import AGL.Demo.Controls 1.0
+import MediaPlayer 1.0
 
 ApplicationWindow {
     id: root
+
+    MediaPlayer {
+        id: player
+        autoLoad: true
+        playlist: playlist
+        function time2str(value) {
+            return Qt.formatTime(new Date(value), 'mm:ss')
+        }
+        onPositionChanged: slider.value = player.position
+    }
+
+    Playlist {
+        id: playlist
+        playbackMode: random.checked ? Playlist.Random : loop.checked ? Playlist.Loop : Playlist.Sequential
+
+        Component.onCompleted: {
+            playlist.addItems(mediaFiles)
+        }
+    }
+
 
     ColumnLayout {
         anchors.fill: parent
@@ -34,9 +55,11 @@ ApplicationWindow {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.bottom: parent.bottom
-                fillMode: Image.PreserveAspectFit
-                source: './images/AGL_MediaPlayer_AlbumArtwork.svg'
+                height: sourceSize.height * width / sourceSize.width
+                fillMode: Image.PreserveAspectCrop
+                source: player.metaData.coverArtImage ? player.metaData.coverArtImage : ''
             }
+
             Item {
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -57,10 +80,12 @@ ApplicationWindow {
                         Row {
                             spacing: 20
                             ToggleButton {
+                                id: random
                                 offImage: './images/AGL_MediaPlayer_Shuffle_Inactive.svg'
                                 onImage: './images/AGL_MediaPlayer_Shuffle_Active.svg'
                             }
                             ToggleButton {
+                                id: loop
                                 offImage: './images/AGL_MediaPlayer_Loop_Inactive.svg'
                                 onImage: './images/AGL_MediaPlayer_Loop_Active.svg'
                             }
@@ -70,14 +95,14 @@ ApplicationWindow {
                             Label {
                                 id: title
                                 Layout.alignment: Layout.Center
-                                text: 'Come Together'
+                                text: player.metaData.title ? player.metaData.title : ''
                                 horizontalAlignment: Label.AlignHCenter
                                 verticalAlignment: Label.AlignVCenter
                             }
                             Label {
                                 id: artist
                                 Layout.alignment: Layout.Center
-                                text: 'The Beatles'
+                                text: player.metaData.author ? player.metaData.author : ''
                                 horizontalAlignment: Label.AlignHCenter
                                 verticalAlignment: Label.AlignVCenter
                                 font.pixelSize: title.font.pixelSize * 0.6
@@ -85,49 +110,65 @@ ApplicationWindow {
                         }
                     }
                     Slider {
+                        id: slider
                         Layout.fillWidth: true
-                        value: 132 / 259
+                        to: player.duration
                         Label {
                             id: position
                             anchors.left: parent.left
                             anchors.bottom: parent.top
                             font.pixelSize: 32
-                            text: '02:12'
+                            text: player.time2str(player.position)
                         }
                         Label {
                             id: duration
                             anchors.right: parent.right
                             anchors.bottom: parent.top
                             font.pixelSize: 32
-                            text: '04:19'
+                            text: player.time2str(player.duration)
                         }
+                        onPressedChanged: player.seek(value)
                     }
                     RowLayout {
                         Layout.fillHeight: true
-                        Image {
-                            source: './images/AGL_MediaPlayer_Playlist_Inactive.svg'
-                        }
-                        Image {
-                            source: './images/AGL_MediaPlayer_CD_Inactive.svg'
-                        }
+//                        Image {
+//                            source: './images/AGL_MediaPlayer_Playlist_Inactive.svg'
+//                        }
+//                        Image {
+//                            source: './images/AGL_MediaPlayer_CD_Inactive.svg'
+//                        }
                         Item { Layout.fillWidth: true }
                         ImageButton {
                             offImage: './images/AGL_MediaPlayer_BackArrow.svg'
+                            onClicked: playlist.previous()
                         }
                         ImageButton {
+                            id: play
                             offImage: './images/AGL_MediaPlayer_Player_Play.svg'
+                            onClicked: player.play()
+                            states: [
+                                State {
+                                    when: player.playbackState === MediaPlayer.PlayingState
+                                    PropertyChanges {
+                                        target: play
+                                        offImage: './images/AGL_MediaPlayer_Player_Pause.svg'
+                                        onClicked: player.pause()
+                                    }
+                                }
+                            ]
                         }
                         ImageButton {
                             offImage: './images/AGL_MediaPlayer_ForwardArrow.svg'
+                            onClicked: playlist.next()
                         }
 
                         Item { Layout.fillWidth: true }
-                        Image {
-                            source: './images/AGL_MediaPlayer_Bluetooth_Inactive.svg'
-                        }
-                        Image {
-                            source: './images/AGL_MediaPlayer_Radio_Inactive.svg'
-                        }
+//                        Image {
+//                            source: './images/AGL_MediaPlayer_Bluetooth_Inactive.svg'
+//                        }
+//                        Image {
+//                            source: './images/AGL_MediaPlayer_Radio_Inactive.svg'
+//                        }
                     }
                 }
             }
@@ -138,39 +179,30 @@ ApplicationWindow {
             Layout.preferredHeight: 2
             ListView {
                 anchors.fill: parent
-                anchors.leftMargin: 50
-                anchors.rightMargin: 50
                 clip: true
-                header: Label { text: 'PLAYLIST'; opacity: 0.5 }
-                model: ListModel {
-                    ListElement {
-                        title: 'Something'
-                        artist: 'The Beatles'
-                        duration: '3:03'
-                    }
-                    ListElement {
-                        title: 'Further Thing'
-                        artist: 'The Beatles'
-                        duration: '3:23'
-                    }
-                    ListElement {
-                        title: 'Here Comes the Sun'
-                        artist: 'The Beatles'
-                        duration: '3:06'
-                    }
-                    ListElement {
-                        title: 'Octopus\'s Garden'
-                        artist: 'The Beatles'
-                        duration: '3:03'
-                    }
+                header: Label {
+                    x: 50
+                    text: 'PLAYLIST'
+                    opacity: 0.5
                 }
+                model: PlaylistWithMetadata {
+                    source: playlist
+                }
+                currentIndex: playlist.currentIndex
+
                 delegate: MouseArea {
+                    id: delegate
                     width: ListView.view.width
                     height: ListView.view.height / 4
                     RowLayout {
                         anchors.fill: parent
+                        anchors.leftMargin: 50
+                        anchors.rightMargin: 50
                         Image {
-                            source: './images/AGL_MediaPlayer_Player_Play.svg'
+                            source: model.coverArt
+                            fillMode: Image.PreserveAspectFit
+                            Layout.preferredWidth: delegate.height
+                            Layout.preferredHeight: delegate.height
                         }
                         ColumnLayout {
                             Layout.fillWidth: true
@@ -181,16 +213,25 @@ ApplicationWindow {
                             Label {
                                 Layout.fillWidth: true
                                 text: model.artist
-                                color: '#59FF7F'
+                                color: '#66FF99'
                                 font.pixelSize: 32
                             }
                         }
                         Label {
-                            text: model.duration
-                            color: '#59FF7F'
+                            text: player.time2str(model.duration)
+                            color: '#66FF99'
                             font.pixelSize: 32
                         }
                     }
+                    onClicked: {
+                        playlist.currentIndex = model.index
+                        player.play()
+                    }
+                }
+
+                highlight: Rectangle {
+                    color: 'white'
+                    opacity: 0.25
                 }
             }
         }

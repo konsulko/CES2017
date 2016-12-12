@@ -15,13 +15,19 @@
  */
 
 #include <QtCore/QDebug>
+#include <QtCore/QDir>
+#include <QtCore/QStandardPaths>
 #include <QtGui/QGuiApplication>
 #include <QtQml/QQmlApplicationEngine>
+#include <QtQml/QQmlContext>
+#include <QtQml/qqml.h>
 #include <QtQuickControls2/QQuickStyle>
 
 #ifdef HAVE_LIBHOMESCREEN
 #include <libhomescreen.hpp>
 #endif
+
+#include "playlistwithmetadata.h"
 
 int main(int argc, char *argv[])
 {
@@ -38,7 +44,19 @@ int main(int argc, char *argv[])
 
     QQuickStyle::setStyle("AGL");
 
+    qmlRegisterType<PlaylistWithMetadata>("MediaPlayer", 1, 0, "PlaylistWithMetadata");
+
+    QVariantList mediaFiles;
+    for (const auto &music : QStandardPaths::standardLocations(QStandardPaths::MusicLocation)) {
+        QDir dir(music);
+        for (const auto &file : dir.entryList(QStringList(), QDir::Files, QDir::Name)) {
+            mediaFiles.append(QUrl::fromLocalFile(dir.absoluteFilePath(file)));
+        }
+    }
+
     QQmlApplicationEngine engine;
+    QQmlContext *context = engine.rootContext();
+    context->setContextProperty("mediaFiles", mediaFiles);
     engine.load(QUrl(QStringLiteral("qrc:/MediaPlayer.qml")));
 
     return app.exec();
