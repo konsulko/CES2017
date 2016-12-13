@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Mixer.qml</file>
+    </qresource>
+</RCC>
