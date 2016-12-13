@@ -18,13 +18,14 @@ import QtQuick 2.6
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.0
 import AGL.Demo.Controls 1.0
+import PaControlModel 1.0
 
 ApplicationWindow {
 	id: root
 	Label { 
 		id: title
 		font.pixelSize: 48
-		text: "AGL Mixer"
+		text: "Mixer"
 		anchors.horizontalCenter: parent.horizontalCenter
 	}
 	ListView {
@@ -33,7 +34,7 @@ ApplicationWindow {
 		anchors.top: title.bottom
 		anchors.margins: 80
 		anchors.fill: parent
-		model: PaControlsModel
+		model: PaControlModel {}
 		delegate: ColumnLayout {
 			width: parent.width
 			spacing: 20
@@ -43,7 +44,12 @@ ApplicationWindow {
 			}
 			Label {
 				font.pixelSize: 32
-				text: controlDesc
+				property var typeString: {type ? "Output" : "Input"}
+				text: "[" + typeString + " #" + cindex + "]"
+			}
+			Label {
+				font.pixelSize: 32
+				text: desc
 			}
 			RowLayout {
 				Label {
@@ -51,10 +57,12 @@ ApplicationWindow {
 					text: "0 %"
 				}
 				Slider {
-					id: controlIndex
-					value: 50
-					to: 100
 					Layout.fillWidth: true
+					from: 0
+					to: 65536
+					stepSize: 1
+					onValueChanged: volume = value
+					Component.onCompleted: value = volume
 				}
 				Label {
 					font.pixelSize: 32

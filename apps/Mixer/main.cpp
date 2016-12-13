@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2016 The Qt Company Ltd.
+ * Copyright (C) 2016 Konsulko Group
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,34 +35,22 @@
 int main(int argc, char *argv[])
 {
 #ifdef HAVE_LIBHOMESCREEN
-    LibHomeScreen libHomeScreen;
+	LibHomeScreen libHomeScreen;
 
-    if (!libHomeScreen.renderAppToAreaAllowed(0, 1)) {
-        qWarning() << "renderAppToAreaAllowed is denied";
-        return -1;
-    }
+	if (!libHomeScreen.renderAppToAreaAllowed(0, 1)) {
+		qWarning() << "renderAppToAreaAllowed is denied";
+		return -1;
+	}
 #endif
 
-    QGuiApplication app(argc, argv);
+	QGuiApplication app(argc, argv);
 
-    QQuickStyle::setStyle("AGL");
+	QQuickStyle::setStyle("AGL");
 
-    // FIXME: Testing with static controls
-    PaControlModel pacm;
-    pacm.addControl(PaControl(30, "Monitor of CM106 Like Sound Device Analog Stereo", "Source"));
-    pacm.addControl(PaControl(31, "CM106 Like Sound Device Analog Stereo", "Source"));
-    pacm.addControl(PaControl(32, "Webcam C310 Analog Mono", "Source"));
-    pacm.addControl(PaControl(16, "CM106 Like Sound Device Analog Stereo", "Sink"));
+	qmlRegisterType<PaControlModel>("PaControlModel", 1, 0, "PaControlModel");
 
-#if 0
-    // register type or context property?
-    qmlRegisterType<PlaylistWithMetadata>("MediaPlayer", 1, 0, "PlaylistWithMetadata");
-#endif
+	QQmlApplicationEngine engine;
+	engine.load(QUrl(QStringLiteral("qrc:/Mixer.qml")));
 
-    QQmlApplicationEngine engine;
-    QQmlContext *context = engine.rootContext();
-    context->setContextProperty("PaControlsModel", &pacm);
-    engine.load(QUrl(QStringLiteral("qrc:/Mixer.qml")));
-
-    return app.exec();
+	return app.exec();
 }

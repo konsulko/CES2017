@@ -1,0 +1,9 @@
+TODO List:
+
+* Add sink-input and source-output support
+* Add independent channel control
+* Add mute toggle support
+* Add proper logarithmic volume control
+* Add event subscription support and update controls/state based on events
+* Add device/card profiles
+* Parse and use actual volume range per control
